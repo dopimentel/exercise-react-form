@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Option from './Option';
+import countryStates from '../countryStates';
 
 class AddressForm extends Component {
   render() {
@@ -33,7 +34,9 @@ class AddressForm extends Component {
         <label htmlFor="countryState">
           Estado
           <select id="countryState">
-            <Option countryState="Amazonas" />
+            {countryStates.map((countryState) => (
+              <Option key={ countryState } countryState={ countryState } />
+            ))}
           </select>
         </label>
       </fieldset>
