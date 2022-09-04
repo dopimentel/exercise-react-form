@@ -6,6 +6,7 @@ class App extends React.Component {
   state = {
     name: '',
     address: '',
+    city: '',
   };
 
   handleChange = ({ target }) => {
@@ -27,12 +28,16 @@ class App extends React.Component {
   validateAddress = (address) => address.replace(/[^\w\s]/gi, '');
 
   render() {
-    const { name, address } = this.state;
+    const { city, name, address } = this.state;
     return (
       <>
         <h1>React Form</h1>
         <PersonalForm name={ name } handleChange={ this.handleChange } />
-        <AddressForm address={ address } handleChange={ this.handleChange } />
+        <AddressForm
+          address={ address }
+          city={ city }
+          handleChange={ this.handleChange }
+        />
       </>
     );
   }
