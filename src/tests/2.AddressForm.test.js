@@ -13,7 +13,7 @@ describe('2 - Crie outro `<fieldset>` para dados de endereço', () => {
   });
 
   /* Endereço */
-  it('Será verificado se existe um campo do tipo `text` envolto por uma `label` com o texto `Endereço`', () => {
+  it.only('Será verificado se existe um campo do tipo `text` envolto por uma `label` com o texto `Endereço`', () => {
     const addressInput = screen.getByLabelText('Endereço');
 
     expect(addressInput).toHaveAttribute('type', 'text');

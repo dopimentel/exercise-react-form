@@ -12,7 +12,7 @@ class PersonalForm extends Component {
             name="name"
             type="text"
             maxLength={ 40 }
-            value={ name.toUpperCase() }
+            value={ name }
             onChange={ handleChange }
             id="name"
           />
