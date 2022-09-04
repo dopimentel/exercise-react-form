@@ -1,6 +1,7 @@
 import React from 'react';
 import PersonalForm from './components/PersonalForm';
 import AddressForm from './components/AddressForm';
+import { number } from 'prop-types';
 
 class App extends React.Component {
   state = {
@@ -27,6 +28,21 @@ class App extends React.Component {
 
   validateAddress = (address) => address.replace(/[^\w\s]/gi, '');
 
+  handleBlur = ({ target }) => {
+    const { name, value } = target;
+    if (name === 'city') {
+      const result = this.validateCity(value);
+      this.setState({ [name]: result });
+    }
+  }
+
+  validateCity = (city) => {
+    if (!Number.isNaN(Number(city[0]))) {
+      return '';
+    }
+    return city;
+  };
+
   render() {
     const { city, name, address } = this.state;
     return (
@@ -37,6 +53,8 @@ class App extends React.Component {
           address={ address }
           city={ city }
           handleChange={ this.handleChange }
+          handleBlur={ this.handleBlur }
+
         />
       </>
     );
