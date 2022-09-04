@@ -5,7 +5,7 @@ import countryStates from '../countryStates';
 
 class AddressForm extends Component {
   render() {
-    const { city, address, handleChange, handleBlur } = this.props;
+    const { city, address, type, handleChange, handleBlur } = this.props;
     return (
       <fieldset>
         <label htmlFor="address">
@@ -41,11 +41,23 @@ class AddressForm extends Component {
         </label>
         <label htmlFor="casa">
           Casa
-          <input type="radio" id="casa" checked name="tipo" />
+          <input
+            type="radio"
+            id="casa"
+            checked={ type }
+            name="type"
+            onChange={ handleChange }
+          />
         </label>
         <label htmlFor="apartamento">
           Apartamento
-          <input type="radio" id="apartamento" name="tipo" />
+          <input
+            type="radio"
+            id="apartamento"
+            name="type"
+            onChange={ handleChange }
+            checked={ !type }
+          />
         </label>
       </fieldset>
     );
@@ -57,6 +69,7 @@ AddressForm.propTypes = {
   address: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   handleBlur: PropTypes.func.isRequired,
+  type: PropTypes.bool.isRequired,
 };
 
 export default AddressForm;

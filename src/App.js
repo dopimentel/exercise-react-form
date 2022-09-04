@@ -7,10 +7,13 @@ class App extends React.Component {
     name: '',
     address: '',
     city: '',
+    type: true,
   };
 
   handleChange = ({ target }) => {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'radio' ? target.checked : target.value;
+
     if (name === 'name') {
       const result = value.toUpperCase();
       return this.setState({ [name]: result });
@@ -18,6 +21,11 @@ class App extends React.Component {
     if (name === 'address') {
       const result = this.validateAddress(value);
       return this.setState({ [name]: result });
+    }
+    if (name === 'type') {
+      return this.setState((state) => ({
+        [name]: !state[name],
+      }));
     }
     return this.setState({ [name]: value });
   };
@@ -43,7 +51,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { city, name, address } = this.state;
+    const { city, name, type, address } = this.state;
     return (
       <>
         <h1>React Form</h1>
@@ -53,7 +61,7 @@ class App extends React.Component {
           city={ city }
           handleChange={ this.handleChange }
           handleBlur={ this.handleBlur }
-
+          type={ type }
         />
       </>
     );
