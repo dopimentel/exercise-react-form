@@ -2,7 +2,7 @@ import React from 'react';
 
 class App extends React.Component {
   state = {
-    name: "",
+    name: '',
   };
 
   handleChange = ({ target }) => {
