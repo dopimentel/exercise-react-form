@@ -39,6 +39,14 @@ class AddressForm extends Component {
             ))}
           </select>
         </label>
+        <label htmlFor="casa">
+          Casa
+          <input type="radio" id="casa" checked name="tipo" />
+        </label>
+        <label htmlFor="apartamento">
+          Apartamento
+          <input type="radio" id="apartamento" name="tipo" />
+        </label>
       </fieldset>
     );
   }
