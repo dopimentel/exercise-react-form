@@ -1,7 +1,6 @@
 import React from 'react';
 import PersonalForm from './components/PersonalForm';
 import AddressForm from './components/AddressForm';
-import { number } from 'prop-types';
 
 class App extends React.Component {
   state = {
