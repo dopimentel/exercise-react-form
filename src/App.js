@@ -2,6 +2,7 @@ import React from 'react';
 import PersonalForm from './components/PersonalForm';
 import AddressForm from './components/AddressForm';
 import ProfessionalForm from './components/ProfessionalForm';
+import Button from './components/Button';
 
 class App extends React.Component {
   state = {
@@ -73,6 +74,7 @@ class App extends React.Component {
           position={ position }
           description={ description }
         />
+        <Button />
       </>
     );
   }
