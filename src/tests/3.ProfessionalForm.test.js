@@ -53,7 +53,7 @@ describe('3 - Crie um terceiro `<fieldset>` para dados do último emprego', () =
     expect(roleInput).toHaveValue(longText.slice(0, 40));
   });
 
-  it.only('Será verificado que, na primeira vez (e apenas na primeira vez) em que o mouse é passado por cima desse campo, um `alert` é exibido', () => {
+  it('Será verificado que, na primeira vez (e apenas na primeira vez) em que o mouse é passado por cima desse campo, um `alert` é exibido', () => {
     mockAlert();
     const roleInput = screen.getByRole('textbox', { name: 'Cargo' });
 
@@ -76,7 +76,7 @@ describe('3 - Crie um terceiro `<fieldset>` para dados do último emprego', () =
   });
 
   /* Descrição do cargo */
-  it('Será verificado se existe uma caixa de texto envolta por uma `label` com o texto `Descrição do cargo`', () => {
+  it.only('Será verificado se existe uma caixa de texto envolta por uma `label` com o texto `Descrição do cargo`', () => {
     const roleDescriptionTextArea = screen.getByRole('textbox', { name: roleDescriptionTextAreaName });
 
     expect(roleDescriptionTextArea).toBeInTheDocument();
