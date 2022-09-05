@@ -35,9 +35,6 @@ class App extends React.Component {
     return this.setState({ [name]: value });
   };
 
-  // https://pt.stackoverflow.com/questions/91477/como-bloquear-caracteres-especiais-em-campo
-  // https://stackoverflow.com/questions/4374822/remove-all-special-characters-with-regexp
-
   validateAddress = (address) => address.replace(/[^\w\s]/gi, '');
 
   handleBlur = ({ target }) => {
