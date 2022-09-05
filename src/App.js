@@ -1,6 +1,7 @@
 import React from 'react';
 import PersonalForm from './components/PersonalForm';
 import AddressForm from './components/AddressForm';
+import ProfessionalForm from './components/ProfessionalForm';
 
 class App extends React.Component {
   state = {
@@ -8,6 +9,8 @@ class App extends React.Component {
     address: '',
     city: '',
     type: true,
+    resume: '',
+    position: '',
   };
 
   handleChange = ({ target }) => {
@@ -51,7 +54,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { city, name, type, address } = this.state;
+    const { position, resume, city, name, type, address } = this.state;
     return (
       <>
         <h1>React Form</h1>
@@ -62,6 +65,11 @@ class App extends React.Component {
           handleChange={ this.handleChange }
           handleBlur={ this.handleBlur }
           type={ type }
+        />
+        <ProfessionalForm
+          handleChange={ this.handleChange }
+          resume={ resume }
+          position={ position }
         />
       </>
     );

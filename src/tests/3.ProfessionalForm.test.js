@@ -53,7 +53,7 @@ describe('3 - Crie um terceiro `<fieldset>` para dados do último emprego', () =
     expect(roleInput).toHaveValue(longText.slice(0, 40));
   });
 
-  it('Será verificado que, na primeira vez (e apenas na primeira vez) em que o mouse é passado por cima desse campo, um `alert` é exibido', () => {
+  it.only('Será verificado que, na primeira vez (e apenas na primeira vez) em que o mouse é passado por cima desse campo, um `alert` é exibido', () => {
     mockAlert();
     const roleInput = screen.getByRole('textbox', { name: 'Cargo' });
 
