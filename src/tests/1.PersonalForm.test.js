@@ -12,7 +12,7 @@ import {
   longEmail,
 } from './helpers';
 
-describe.only('1 - Crie um `<fieldset>` para os dados pessoais', () => {
+describe('1 - Crie um `<fieldset>` para os dados pessoais', () => {
   beforeEach(() => {
     render(<App />);
   });
