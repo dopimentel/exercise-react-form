@@ -11,6 +11,7 @@ class App extends React.Component {
     type: true,
     resume: '',
     position: '',
+    description: '',
   };
 
   handleChange = ({ target }) => {
@@ -54,7 +55,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { position, resume, city, name, type, address } = this.state;
+    const { description, position, resume, city, name, type, address } = this.state;
     return (
       <>
         <h1>React Form</h1>
@@ -70,6 +71,7 @@ class App extends React.Component {
           handleChange={ this.handleChange }
           resume={ resume }
           position={ position }
+          description={ description }
         />
       </>
     );

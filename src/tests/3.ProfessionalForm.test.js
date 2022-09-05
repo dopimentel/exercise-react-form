@@ -76,7 +76,7 @@ describe('3 - Crie um terceiro `<fieldset>` para dados do último emprego', () =
   });
 
   /* Descrição do cargo */
-  it.only('Será verificado se existe uma caixa de texto envolta por uma `label` com o texto `Descrição do cargo`', () => {
+  it('Será verificado se existe uma caixa de texto envolta por uma `label` com o texto `Descrição do cargo`', () => {
     const roleDescriptionTextArea = screen.getByRole('textbox', { name: roleDescriptionTextAreaName });
 
     expect(roleDescriptionTextArea).toBeInTheDocument();
