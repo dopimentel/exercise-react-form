@@ -75,7 +75,7 @@ AddressForm.propTypes = {
   city: PropTypes.string.isRequired,
   handleBlur: PropTypes.func.isRequired,
   type: PropTypes.bool.isRequired,
-  countryState: PropTypes.bool.isRequired,
+  countryState: PropTypes.string.isRequired,
 };
 
 export default AddressForm;

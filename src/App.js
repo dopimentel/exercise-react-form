@@ -2,8 +2,9 @@ import React from 'react';
 import PersonalForm from './components/PersonalForm';
 import AddressForm from './components/AddressForm';
 import ProfessionalForm from './components/ProfessionalForm';
-import Button from './components/Button';
+import SubmitButton from './components/SubmitButton';
 import FormData from './components/FormData';
+import ResetButton from './components/ResetButton';
 
 class App extends React.Component {
   state = {
@@ -63,6 +64,10 @@ class App extends React.Component {
     this.setState((state) => ({ submitted: !state[name] }));
   };
 
+  handleClick = () => {
+    this.setState({ submitted: false });
+  };
+
   render() {
     const {
       description,
@@ -114,7 +119,8 @@ class App extends React.Component {
             description={ description }
             countryState={ countryState }
           />
-          <Button />
+          <SubmitButton />
+          <ResetButton handleClick={ this.handleClick } />
         </form>
       </>
     );

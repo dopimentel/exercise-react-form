@@ -19,6 +19,7 @@ class FormData extends Component {
     if (submitted) {
       return (
         <fieldset>
+          <legend>Dados Enviados:</legend>
           <div>{name}</div>
           <div>{email}</div>
           <div>{cpf}</div>
@@ -44,7 +45,7 @@ FormData.propTypes = {
   resume: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.bool.isRequired,
   countryState: PropTypes.string.isRequired,
   submitted: PropTypes.bool.isRequired,
 };

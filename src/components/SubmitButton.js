@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
+class SubmitButton extends Component {
   render() {
     return (
       <button type="submit">Enviar</button>
@@ -8,4 +8,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default SubmitButton;
