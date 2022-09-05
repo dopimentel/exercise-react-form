@@ -5,7 +5,7 @@ import countryStates from '../countryStates';
 
 class AddressForm extends Component {
   render() {
-    const { city, address, type, handleChange, handleBlur } = this.props;
+    const { city, address, type, handleChange, handleBlur, countryState } = this.props;
     return (
       <fieldset>
         <label htmlFor="address">
@@ -33,9 +33,14 @@ class AddressForm extends Component {
         </label>
         <label htmlFor="countryState">
           Estado
-          <select id="countryState">
-            {countryStates.map((countryState) => (
-              <Option key={ countryState } countryState={ countryState } />
+          <select
+            id="countryState"
+            name="countryState"
+            value={ countryState }
+            onChange={ handleChange }
+          >
+            {countryStates.map((state) => (
+              <Option key={ state } countryState={ state } />
             ))}
           </select>
         </label>
@@ -70,6 +75,7 @@ AddressForm.propTypes = {
   city: PropTypes.string.isRequired,
   handleBlur: PropTypes.func.isRequired,
   type: PropTypes.bool.isRequired,
+  countryState: PropTypes.bool.isRequired,
 };
 
 export default AddressForm;

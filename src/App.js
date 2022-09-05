@@ -3,16 +3,21 @@ import PersonalForm from './components/PersonalForm';
 import AddressForm from './components/AddressForm';
 import ProfessionalForm from './components/ProfessionalForm';
 import Button from './components/Button';
+import FormData from './components/FormData';
 
 class App extends React.Component {
   state = {
     name: '',
+    email: '',
     address: '',
+    countryState: '',
+    cpf: '',
     city: '',
     type: true,
     resume: '',
     position: '',
     description: '',
+    submitted: false,
   };
 
   handleChange = ({ target }) => {
@@ -52,26 +57,65 @@ class App extends React.Component {
     return city;
   };
 
+  handleSubmit = (event) => {
+    const { target: { name } } = event;
+    event.preventDefault();
+    this.setState((state) => ({ submitted: !state[name] }));
+  };
+
   render() {
-    const { description, position, resume, city, name, type, address } = this.state;
+    const {
+      description,
+      email,
+      position,
+      resume,
+      city,
+      name,
+      type,
+      address,
+      cpf,
+      countryState,
+      submitted,
+    } = this.state;
     return (
       <>
         <h1>React Form</h1>
-        <PersonalForm name={ name } handleChange={ this.handleChange } />
-        <AddressForm
-          address={ address }
-          city={ city }
-          handleChange={ this.handleChange }
-          handleBlur={ this.handleBlur }
-          type={ type }
-        />
-        <ProfessionalForm
-          handleChange={ this.handleChange }
-          resume={ resume }
-          position={ position }
-          description={ description }
-        />
-        <Button />
+        <form onSubmit={ this.handleSubmit }>
+          <PersonalForm
+            name={ name }
+            email={ email }
+            cpf={ cpf }
+            handleChange={ this.handleChange }
+          />
+          <AddressForm
+            address={ address }
+            city={ city }
+            handleChange={ this.handleChange }
+            handleBlur={ this.handleBlur }
+            type={ type }
+            countryState={ countryState }
+          />
+          <ProfessionalForm
+            handleChange={ this.handleChange }
+            resume={ resume }
+            position={ position }
+            description={ description }
+          />
+          <FormData
+            submitted={ submitted }
+            name={ name }
+            email={ email }
+            cpf={ cpf }
+            address={ address }
+            type={ type }
+            city={ city }
+            resume={ resume }
+            position={ position }
+            description={ description }
+            countryState={ countryState }
+          />
+          <Button />
+        </form>
       </>
     );
   }

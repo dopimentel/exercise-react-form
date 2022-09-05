@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class PersonalForm extends Component {
   render() {
-    const { name, handleChange } = this.props;
+    const { name, email, cpf, handleChange } = this.props;
     return (
       <fieldset>
         <label htmlFor="name">
@@ -19,11 +19,25 @@ class PersonalForm extends Component {
         </label>
         <label htmlFor="email">
           Email
-          <input name="email" type="email" maxLength={ 50 } id="email" />
+          <input
+            name="email"
+            type="email"
+            maxLength={ 50 }
+            id="email"
+            value={ email }
+            onChange={ handleChange }
+          />
         </label>
         <label htmlFor="cpf">
           CPF
-          <input type="text" maxLength={ 11 } id="cpf" />
+          <input
+            name="cpf"
+            type="text"
+            maxLength={ 11 }
+            id="cpf"
+            value={ cpf }
+            onChange={ handleChange }
+          />
         </label>
       </fieldset>
     );
@@ -33,6 +47,8 @@ class PersonalForm extends Component {
 PersonalForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  cpf: PropTypes.string.isRequired,
 };
 
 export default PersonalForm;
